@@ -1,26 +1,22 @@
-export {TextBlock, ImageBlock, Primitiv, Page, Doc};
+export type {TextBlock, ImageBlock, Primitiv, Page, Doc, History, Char};
+export {textblock};
 
-//механизм командной консоли
 
-type Command = () => void;
-
-function ExecuteCommand(command: Command): Command {
-    command();
-    return () => {
-      // отменить выполнение команды
-    };
-  }
-
-const command = () => {
-    console.log('Выполненна команда...');
-};
-
-const UndoCommand = ExecuteCommand(command);
-
+type Operation = {
+    id: string;
+    data: object;
+    prev: Operation | null;
+    next: Operation | null;
+  };
+  
+type History = {
+    topOperation: Operation;
+  };  
  
 type Char = {
+    id: number,
     value: string,
-    fontsize: Number,
+    fontsize: number,
     fontfamily: string,
     color: string, 
     background: string, 
@@ -37,11 +33,11 @@ type Block = {
 }
 
 type Primitiv = Block& {
-    shape: string,
+    shape: "Triangle" | "Ellipse" | "Rectangle",
     color: string,
-    length: Number,  
-    height: Number,
-    BoldColor: string,
+    width: number,  
+    height: number,
+    boldcolor: string,
 }
 
 type TextBlock = Block& {
@@ -54,8 +50,10 @@ type ImageBlock = Block& {
     type: 'image',
 }
 
-type Page = Array<TextBlock|ImageBlock|Primitiv>
-
+type Page = {
+    elements: Array<TextBlock|ImageBlock|Primitiv>,
+    id: number,
+}
 type Doc = {
     name: string,
     pages: Array<Page>
@@ -66,6 +64,7 @@ const textblock: TextBlock = {
     coordinates: {x: 10, y: 20},
     boldcolor: '#7BCDE',
     chars: [{
+        id: 1,
         value: 'h',
         fontsize: 14,
         fontfamily: 'Times New Roman',
@@ -86,15 +85,19 @@ const primitiv: Primitiv = {
     coordinates: {x: 10, y: 20},
     shape: 'Rectangle',
     color: '#7bctA',
-    length: 12,
+    width: 12,
     height: 14,
-    BoldColor: '#7bctA',
+    boldcolor: '#7bctA',
+}
+
+const page: Page = {
+    elements: [textblock, primitiv, imageblock],
+    id: 1,
 }
 
 const doc: Doc = {
     name: 'mypresentation',
     pages: [
-        [textblock, imageblock, primitiv]
+        page
     ],
 }
-
