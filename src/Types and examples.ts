@@ -1,4 +1,4 @@
-export type {TextBlock, ImageBlock, Primitiv, Page, Doc, History, Char};
+export type {TextBlock, ImageBlock, Primitiv, Page, Doc, History, Char, ObjectElement};
 export {textblock};
 
 
@@ -32,6 +32,10 @@ type Block = {
     coordinates: Coordinates, 
 }
 
+type ObjectElement = {
+    type: 'TextBlock' | 'Image' | 'Primitiv',
+}
+
 type Primitiv = Block& {
     shape: "Triangle" | "Ellipse" | "Rectangle",
     color: string,
@@ -56,7 +60,8 @@ type Page = {
 }
 type Doc = {
     name: string,
-    pages: Array<Page>
+    pages: Array<Page>,
+    current: Page,
 }
 
 const textblock: TextBlock = {
@@ -95,9 +100,14 @@ const page: Page = {
     id: 1,
 }
 
+const object: ObjectElement = {
+    type: "TextBlock",
+}
+
 const doc: Doc = {
     name: 'mypresentation',
     pages: [
         page
     ],
+    current: page
 }
