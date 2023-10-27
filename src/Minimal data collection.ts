@@ -21,6 +21,7 @@ const Char2: Char = {
 
 const textblock: TextBlock = {
     id: 1,
+    type: 'TextBlock',
     coordinates: {x: 10, y: 20},
     boldcolor: '#7BCDE',
     chars: [
@@ -38,4 +39,5 @@ const doc: Doc = {
     pages: [
         Slide1
     ],
+    current: Slide1
 }

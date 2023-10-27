@@ -1,4 +1,4 @@
-export type {TextBlock, ImageBlock, Primitiv, Page, Doc, History, Char, ObjectElement};
+export type {TextBlock, ImageBlock, Primitiv, Page, Doc, History, Char};
 export {textblock};
 
 
@@ -29,29 +29,32 @@ type Coordinates = {
 
 type Block = {
     id: number
-    coordinates: Coordinates, 
-}
-
-type ObjectElement = {
-    type: 'TextBlock' | 'Image' | 'Primitiv',
+    coordinates: Coordinates,
+    type: 'TextBlock' | 'Image' | 'Primitiv'
 }
 
 type Primitiv = Block& {
-    shape: "Triangle" | "Ellipse" | "Rectangle",
-    color: string,
-    width: number,  
-    height: number,
-    boldcolor: string,
+    data: 
+    {
+        shape: "Triangle" | "Ellipse" | "Rectangle",
+        color: string,
+        width: number,  
+        height: number,
+        boldcolor: string,
+    }
 }
 
 type TextBlock = Block& {
-    chars: Array<Char>,
+    data: Array<Char>,
     boldcolor: string, 
 }
 
-type ImageBlock = Block& { 
-    data: string,
-    type: 'image',
+type ImageBlock = Block& {
+    data:
+    {
+        urldata: string,
+    } 
+    
 }
 
 type Page = {
@@ -67,8 +70,9 @@ type Doc = {
 const textblock: TextBlock = {
     id: 1,
     coordinates: {x: 10, y: 20},
+    type: 'TextBlock',
     boldcolor: '#7BCDE',
-    chars: [{
+    data: [{
         id: 1,
         value: 'h',
         fontsize: 14,
@@ -81,27 +85,30 @@ const textblock: TextBlock = {
 const imageblock: ImageBlock ={
     id: 2,
     coordinates: {x: 10, y: 20},
-    data: 'https://UsersImage',
-    type: 'image',
+    type: 'Image',
+    data:
+    {
+        urldata: 'https://UsersImage',
+    }
 }
 
 const primitiv: Primitiv = {
     id: 3,
     coordinates: {x: 10, y: 20},
-    shape: 'Rectangle',
-    color: '#7bctA',
-    width: 12,
-    height: 14,
-    boldcolor: '#7bctA',
+    type: 'Primitiv',
+    data: 
+    {
+        shape: 'Rectangle',
+        color: '#7bctA',
+        width: 12,
+        height: 14,
+        boldcolor: '#7bctA',
+    }
 }
 
 const page: Page = {
     elements: [textblock, primitiv, imageblock],
     id: 1,
-}
-
-const object: ObjectElement = {
-    type: "TextBlock",
 }
 
 const doc: Doc = {
