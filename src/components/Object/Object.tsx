@@ -1,13 +1,13 @@
-import '../../Types and examples'
-import { ObjectElement } from '../../Types and examples'
-import {Text} from '../TextBlock/TextBlock'
+// import '../../Types and examples'
+// import { ObjectElement } from '../../Types and examples'
+// import {Text} from '../TextBlock/TextBlock'
 
-function ShowElement(Obj: ObjectElement) {
-    return (
-        <div>
-            {Obj.type === 'TextBlock' <Text {...data} />}
-        </div>
-    )
-}
+// function ShowElement(Obj: ObjectElement) {
+//     return (
+//         <div>
+//             {Obj.type === 'TextBlock' <Text {...data} />}
+//         </div>
+//     )
+// }
 
-export default ShowElement
+export default {} //ShowElement

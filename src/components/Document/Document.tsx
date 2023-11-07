@@ -1,14 +1,15 @@
 import '../../Types and examples';
-import { Doc, Page } from '../../Types and examples';
 import SlideBar from '../SlideBar/SlideBar';
-import WorkArea from '../WorkSpace/WorkSpace'
+import { doc } from '../../Maximal data collection';
+import WorkArea from '../Slide/Slide';
+import { useState } from 'react';
+import './Document.css';
 
-function ShowDocument(doc: Doc) {
-    const name = doc.name
-    const pages: Array<Page> = doc.pages
+function ShowDocument() {
+    const [activeSlideIndex, setActiveSlideIndex] = useState(0);
     return (
-        <div>
-           <SlideBar {...pages}/>
+        <div className='SlidesDisplay'>
+           {/* <SlideBar slides={doc.pages} activeSlideIndex={activeSlideIndex} setActiveSlideIndex={setActiveSlideIndex}/> */}
            <WorkArea {...doc.current}/>
         </div>
     )

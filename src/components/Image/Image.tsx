@@ -2,14 +2,12 @@ import "../../Types and examples";
 import { ImageBlock } from "../../Types and examples";
 
 type ImageProps = {
-    data: {
-      urldata: string;
-    };
+    data: ImageBlock
   };
 
-function Image({data}: ImageProps) {
+function Image(props: ImageProps) {
     return (
-        <img src={data.urldata} ></img>
+        <img src={props.data.urldata} ></img>
     )
 }
 

@@ -1,0 +1,8 @@
+.Slide
+{
+    width: 800px;
+    height: 500px;
+    border-width: medium;
+    border-color: black;
+    border: solid;
+}

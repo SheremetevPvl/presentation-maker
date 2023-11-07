@@ -1,5 +1,5 @@
-export type {TextBlock, ImageBlock, Primitiv, Page, Doc, History, Char};
-export {textblock};
+export type {Slide, TextBlock, ImageBlock, Primitiv, Page, Doc, History, Char, PageInfo, Objects };
+export { textblock, doc };
 
 
 type Operation = {
@@ -7,19 +7,19 @@ type Operation = {
     data: object;
     prev: Operation | null;
     next: Operation | null;
-  };
-  
+};
+
 type History = {
     topOperation: Operation;
-  };  
- 
+};
+
 type Char = {
     id: number,
     value: string,
     fontsize: number,
     fontfamily: string,
-    color: string, 
-    background: string, 
+    color: string,
+    background: string,
 }
 
 type Coordinates = {
@@ -33,43 +33,52 @@ type Block = {
     type: 'TextBlock' | 'Image' | 'Primitiv'
 }
 
-type Primitiv = Block& {
-    data: 
+type Primitiv = Block & {
+    type: 'Primitiv'
+    data:
     {
         shape: "Triangle" | "Ellipse" | "Rectangle",
         color: string,
-        width: number,  
+        width: number,
         height: number,
         boldcolor: string,
     }
 }
 
-type TextBlock = Block& {
+type TextBlock = Block & {
+    type: 'TextBlock'
     data: Array<Char>,
-    boldcolor: string, 
+    boldcolor: string,
 }
 
-type ImageBlock = Block& {
-    data:
-    {
-        urldata: string,
-    } 
-    
+type ImageBlock = Block & {
+    type: 'Image'
+    urldata: string,
+
 }
 
 type Page = {
-    elements: Array<TextBlock|ImageBlock|Primitiv>,
+    elements: Array<TextBlock | ImageBlock | Primitiv>,
     id: number,
 }
+
+type Objects = TextBlock | ImageBlock | Primitiv
+type Slide = Array<TextBlock | ImageBlock | Primitiv>
+
+type PageInfo = {
+    selected: boolean,
+    slide: Slide,
+} 
+
 type Doc = {
     name: string,
-    pages: Array<Page>,
-    current: Page,
+    pages: Array<PageInfo>,
+    current: PageInfo,
 }
 
 const textblock: TextBlock = {
     id: 1,
-    coordinates: {x: 10, y: 20},
+    coordinates: { x: 10, y: 20 },
     type: 'TextBlock',
     boldcolor: '#7BCDE',
     data: [{
@@ -82,21 +91,19 @@ const textblock: TextBlock = {
     }],
 }
 
-const imageblock: ImageBlock ={
+const imageblock: ImageBlock = {
     id: 2,
-    coordinates: {x: 10, y: 20},
+    coordinates: { x: 10, y: 20 },
     type: 'Image',
-    data:
-    {
-        urldata: 'https://UsersImage',
-    }
+    urldata: 'https://UsersImage',
+
 }
 
 const primitiv: Primitiv = {
     id: 3,
-    coordinates: {x: 10, y: 20},
+    coordinates: { x: 10, y: 20 },
     type: 'Primitiv',
-    data: 
+    data:
     {
         shape: 'Rectangle',
         color: '#7bctA',
@@ -111,10 +118,17 @@ const page: Page = {
     id: 1,
 }
 
+const slide1: Slide = [textblock, primitiv, imageblock]
+
+const pageinfo: PageInfo = {
+    slide: slide1,
+    selected: false,
+}
+
 const doc: Doc = {
     name: 'mypresentation',
     pages: [
-        page
+        pageinfo
     ],
-    current: page
+    current: pageinfo
 }

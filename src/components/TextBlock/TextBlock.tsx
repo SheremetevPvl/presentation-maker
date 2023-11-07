@@ -2,18 +2,30 @@ import { CSSProperties } from 'react';
 import {TextBlock, Char} from '../../Types and examples';
 
 
-function textblock(value: TextBlock){
-    const style: CSSProperties = {
-        
-    }
-    const text: Array<Char> = value.data
+type TextProps = {
+    data: TextBlock;
+  }
+
+  const TextSlide = (props: TextProps) => {
+    const data = props.data;
+
     return (
         <div>
-            {text.map((text) =>
-               <span key = {text.id}>{text.value}</span>
-            )}
+            {data.data.map((char, id) => (
+                <CharObject key={id} data={char} />
+            ))}
         </div>
     )
 }
+type CharObjectProps = {
+    data: Char;
+  }
+  
+  const CharObject = (props: CharObjectProps) => {
+    const data = props.data
+  
+    return <span>{data.value}</span>
+  }
+  
 
-export default textblock
+export default TextSlide
