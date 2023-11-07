@@ -5,4 +5,5 @@
     border-width: medium;
     border-color: black;
     border: solid;
+    position: relative;
 }

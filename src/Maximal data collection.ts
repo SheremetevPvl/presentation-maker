@@ -4,6 +4,7 @@ const textblock: TextBlock = {
     id: 1,
     coordinates: { x: 10, y: 20 },
     boldcolor: '#7BCDE',
+    background: 'blue',
     data: [
         {
             id: 1,
@@ -27,9 +28,11 @@ const textblock: TextBlock = {
 
 const imageblock: ImageBlock = {
     id: 2,
-    coordinates: { x: 30, y: 20 },
+    coordinates: { x: 30, y: 50 },
     urldata: './logo192.png',
     type: 'Image',
+    width: 200,
+    height: 100,
 }
 
 const primitiv: Primitiv = {
@@ -49,22 +52,23 @@ const primitiv: Primitiv = {
 const textblock1: TextBlock = {
     id: 4,
     coordinates: { x: 10, y: 20 },
-    boldcolor: '#7BCDE',
+    boldcolor: 'black',
+    background: 'blue',
     data: [
         {
             id: 1,
             value: 'B',
             fontsize: 14,
-            fontfamily: 'Times New Roman',
-            color: '#adfe6f',
+            fontfamily: 'sans-serif',
+            color: 'black',
             background: '#adfe6f',
         },
         {
             id: 2,
             value: 'A',
             fontsize: 14,
-            fontfamily: 'Times New Roman',
-            color: '#adfe6f',
+            fontfamily: 'sans-serif',
+            color: 'black',
             background: '#adfe6f',
         }
     ],
@@ -76,6 +80,8 @@ const imageblock1: ImageBlock = {
     coordinates: { x: 30, y: 20 },
     urldata: './logo512.png',
     type: 'Image',
+    width: 200,
+    height: 100,
 }
 
 const primitiv1: Primitiv = {

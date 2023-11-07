@@ -49,12 +49,14 @@ type TextBlock = Block & {
     type: 'TextBlock'
     data: Array<Char>,
     boldcolor: string,
+    background: string,
 }
 
 type ImageBlock = Block & {
     type: 'Image'
     urldata: string,
-
+    width: number,
+    height: number,
 }
 
 type Page = {
@@ -81,6 +83,7 @@ const textblock: TextBlock = {
     coordinates: { x: 10, y: 20 },
     type: 'TextBlock',
     boldcolor: '#7BCDE',
+    background: 'blue',
     data: [{
         id: 1,
         value: 'h',
@@ -96,7 +99,8 @@ const imageblock: ImageBlock = {
     coordinates: { x: 10, y: 20 },
     type: 'Image',
     urldata: 'https://UsersImage',
-
+    width: 200,
+    height: 100,
 }
 
 const primitiv: Primitiv = {
