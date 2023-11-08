@@ -37,15 +37,15 @@ const imageblock: ImageBlock = {
 
 const primitiv: Primitiv = {
     id: 3,
-    coordinates: { x: 20, y: 20 },
+    coordinates: { x: 100, y: 100 },
     type: 'Primitiv',
     data:
     {
         shape: 'Rectangle',
-        color: '#7bctA',
-        width: 12,
-        height: 14,
-        boldcolor: '#7bctA',
+        color: 'blue',
+        width: 100,
+        height: 200,
+        boldcolor: 'black',
     }
 }
 
@@ -86,15 +86,29 @@ const imageblock1: ImageBlock = {
 
 const primitiv1: Primitiv = {
     id: 6,
-    coordinates: { x: 20, y: 20 },
+    coordinates: { x: 100, y: 100 },
     type: 'Primitiv',
     data:
     {
-        shape: 'Rectangle',
-        color: '#7bctA',
-        width: 12,
-        height: 14,
-        boldcolor: '#7bctA',
+        shape: 'Circle',
+        color: 'blue',
+        width: 50,
+        height: 50,
+        boldcolor: 'black',
+    }
+}
+
+const primitiv2: Primitiv = {
+    id: 7,
+    coordinates: { x: 100, y: 300 },
+    type: 'Primitiv',
+    data:
+    {
+        shape: 'Triangle',
+        color: 'blue',
+        width: 100,
+        height: 200,
+        boldcolor: 'black',
     }
 }
 
@@ -106,14 +120,20 @@ const Slide2: Page = {
     elements: [textblock1, primitiv1, imageblock1],
     id: 2,
 }
-const slide1: Slide = [textblock, primitiv, imageblock]
+const slide1: Slide = [textblock, primitiv2, imageblock]
 const slide2: Slide = [textblock1, primitiv1, imageblock1]
+const slide3: Slide = [primitiv2]
 const pageinfo1: PageInfo = {
     slide: slide1,
     selected: false,
 }
 const pageinfo2: PageInfo = {
     slide: slide2,
+    selected: false,
+}
+
+const pageinfo3: PageInfo = {
+    slide: slide3,
     selected: false,
 }
 

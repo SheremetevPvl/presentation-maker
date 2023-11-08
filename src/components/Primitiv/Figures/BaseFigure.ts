@@ -1,3 +1,0 @@
-interface IBaseFigure {
-    className?: string;
-  }

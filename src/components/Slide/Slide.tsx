@@ -22,11 +22,10 @@ function ShowSlide(Slide: PageInfo) {
                 if (element.type === "TextBlock") {
                     return <Textblock key={element.id} data={element} />;
                 } else if (element.type === "Image") {
-                    return <Image  data={element} />;
+                    return <Image key={element.id} data={element} />;
                 }
                 else if (element.type === "Primitiv") {
-                    //return <PrimitivObg  {...data} />;
-                    // обработка других типов данных
+                    return <PrimitivObg key={element.id} {...element} />;
                 }
                 return null;
             })}

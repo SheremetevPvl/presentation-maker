@@ -37,7 +37,7 @@ type Primitiv = Block & {
     type: 'Primitiv'
     data:
     {
-        shape: "Triangle" | "Ellipse" | "Rectangle",
+        shape: "Triangle" | "Circle" | "Rectangle",
         color: string,
         width: number,
         height: number,

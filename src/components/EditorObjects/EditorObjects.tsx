@@ -1,7 +1,7 @@
 import { Objects,  } from "../../Types and examples"
 import TextSlide from "../TextBlock/TextBlock"
 import Image from "../Image/Image"
-
+import SlidePrimitive from "../Primitiv/Primitiv"
 
 
 type SlideObjectProps = {
@@ -11,8 +11,8 @@ type SlideObjectProps = {
   
   function getObject(data: Objects) {
     switch (data.type) {
-      // case 'Primitiv':
-      //   return <SlidePrimitive data={data}/>
+      /* case 'Primitiv':
+        return <SlidePrimitive data={data}/> */
   
       case 'TextBlock':
         return <TextSlide data={data}/>
