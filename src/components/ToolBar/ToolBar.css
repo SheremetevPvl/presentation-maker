@@ -1,0 +1,16 @@
+.ToolBar 
+{
+    display: flex;
+    width: 100%;
+    height: 200 px;
+    border-color: black;
+    border: 5px;
+}
+
+.Button
+{
+    width: 10px;
+    height: 30px;
+    border-radius: 2px;
+    border-color: black;
+}

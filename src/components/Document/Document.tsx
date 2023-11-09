@@ -9,7 +9,7 @@ function ShowDocument() {
     const [activeSlideIndex, setActiveSlideIndex] = useState(0);
     return (
         <div className='SlidesDisplay'>
-           {/* <SlideBar slides={doc.pages} activeSlideIndex={activeSlideIndex} setActiveSlideIndex={setActiveSlideIndex}/> */}
+           <SlideBar slides={doc.pages} activeSlideIndex={activeSlideIndex} setActiveSlideIndex={setActiveSlideIndex}/>
            <WorkArea {...doc.current}/>
         </div>
     )
