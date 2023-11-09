@@ -9,23 +9,18 @@ import './Slide.css';
 
 function ShowSlide(Slide: PageInfo) {
     const element: Array<TextBlock | Primitiv | ImageBlock> = Slide.slide
+    const decrease: number = 1;
     return (
-        // <div>
-        //     {element.map((element) => (element.type === 'Image') &&
-        //        <Image key = {element.id}  {...element}/>
-        //     )}
-        // </div>
         <div className='Slide'>
             {element.map((element) =>
-            //    <Block key = {element.id} {...element}/>
             {
                 if (element.type === "TextBlock") {
-                    return <Textblock key={element.id} data={element} />;
+                    return <Textblock key={element.id} data={element} decrease={decrease}/>;
                 } else if (element.type === "Image") {
-                    return <Image key={element.id} data={element} />;
+                    return <Image key={element.id} data={element} decrease={decrease}/>;
                 }
                 else if (element.type === "Primitiv") {
-                    return <PrimitivObg key={element.id} {...element} />;
+                    return <PrimitivObg key={element.id} data={element} decrease={decrease}/>;
                 }
                 return null;
             })}

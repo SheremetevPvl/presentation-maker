@@ -3,18 +3,20 @@ import {TextBlock, Char} from '../../Types and examples';
 
 type TextProps = {
     data: TextBlock;
+    decrease: number;
   }
 
   const TextSlide = (props: TextProps) => {
     const data = props.data;
 
+    
     const BlockStyle: CSSProperties = 
     {
       padding: 2,
       borderBlockColor: data.boldcolor,
       backgroundColor: data.background,
-      marginLeft: data.coordinates.x,
-      marginTop: data.coordinates.y,
+      marginLeft: data.coordinates.x / props.decrease,
+      marginTop: data.coordinates.y / props.decrease,
       width: 'max-content',
       position: 'absolute',
     }
@@ -22,13 +24,14 @@ type TextProps = {
     return (
       <div style={BlockStyle}>
           {data.data.map((char, id) => (
-              <CharObject key={id} data={char} />
+              <CharObject key={id} data={char} decrease={props.decrease}/>
           ))}
       </div>
     )
 }
 type CharObjectProps = {
     data: Char;
+    decrease: number;
   }
   
   const CharObject = (props: CharObjectProps) => {
@@ -36,7 +39,7 @@ type CharObjectProps = {
   
     const CharStyle: CSSProperties =
     {
-      fontSize: data.fontsize,
+      fontSize: data.fontsize / props.decrease,
       fontFamily: data.fontfamily,
       color: data.color,
     }

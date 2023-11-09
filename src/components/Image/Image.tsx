@@ -3,17 +3,18 @@ import { ImageBlock } from "../../Types and examples";
 import { CSSProperties } from "react";
 
 type ImageProps = {
-    data: ImageBlock
+    data: ImageBlock;
+    decrease: number;
   };
 
 function Image(props: ImageProps) {
 
    const style: CSSProperties = 
    {
-      marginLeft: props.data.coordinates.x,
-      marginTop: props.data.coordinates.y,
-      width: props.data.width,
-      height: props.data.height,
+      marginLeft: props.data.coordinates.x / props.decrease,
+      marginTop: props.data.coordinates.y / props.decrease,
+      width: props.data.width / props.decrease,
+      height: props.data.height / props.decrease,
       position: 'absolute',
    }
 

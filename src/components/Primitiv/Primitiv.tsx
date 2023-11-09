@@ -3,15 +3,22 @@ import Rectangle from "./Figures/Rectangle";
 import Circle from "./Figures/Circle";
 import Triangle from "./Figures/Triangle";
 
-function ShowPrimitiv(props: Primitiv) {
-    const type = props.data.shape
+type PrimitivProps = {
+    data: Primitiv;
+    decrease: number;
+}
+
+function ShowPrimitiv(props: PrimitivProps) {
+    const data = props.data
+
+    const type = data.data.shape
     if (type === "Circle") {
-        return <Circle key={props.id} data={props} />;
+        return <Circle key={data.id} data={data} decrease={props.decrease}/>;
     } else if (type === "Rectangle") {
-        return <Rectangle key={props.id} data={props} />;
+        return <Rectangle key={data.id} data={data} decrease={props.decrease}/>;
     }
     else if (type === "Triangle") {
-        return <Triangle key={props.id} data={props} />;
+        return <Triangle key={data.id} data={data} decrease={props.decrease}/>;
     }
     return null;
 }

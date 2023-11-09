@@ -3,6 +3,7 @@ import { CSSProperties } from "react";
 
 type FigureProps = {
     data: Primitiv;
+    decrease: number;
   }
 
 const Circle = (props: FigureProps)  => {
@@ -10,13 +11,13 @@ const Circle = (props: FigureProps)  => {
    const Params: CSSProperties = 
    {
       position: 'absolute',
-      marginTop: props.data.coordinates.y,
-      marginLeft: props.data.coordinates.x,
+      marginTop: props.data.coordinates.y / props.decrease,
+      marginLeft: props.data.coordinates.x / props.decrease,
       borderBlockColor: props.data.data.boldcolor,
       backgroundColor: props.data.data.color,
-      width: props.data.data.width,
-      height: props.data.data.width,
-      borderRadius: props.data.data.width / 2,
+      width: props.data.data.width / props.decrease,
+      height: props.data.data.width / props.decrease,
+      borderRadius: props.data.data.width / 2 / props.decrease,
    }
 
     return (

@@ -10,15 +10,16 @@ type SlideObjectProps = {
   }
   
   function getObject(data: Objects) {
+    const decrease: number = 4;
     switch (data.type) {
       case 'Primitiv':
-        return <SlidePrimitive {...data}/>
+        return <SlidePrimitive data={data} decrease={decrease}/>
   
       case 'TextBlock':
-        return <TextSlide data={data}/>
+        return <TextSlide data = {data} decrease={decrease}/>
   
       case 'Image':
-        return <Image data={data}/>
+        return <Image data={data} decrease={decrease}/>
     }
   }
   

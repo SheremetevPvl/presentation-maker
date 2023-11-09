@@ -1,8 +1,7 @@
 import '../../Types and examples'
 import { PageInfo } from '../../Types and examples';
 import Render from '../Render/Render';
-
-
+import './SlideBar.css';
 
 type SlideBarProps = {
     slides: PageInfo[];
@@ -12,7 +11,7 @@ type SlideBarProps = {
 
 const SlideBar = (props: SlideBarProps) => {
     return (
-      <div>
+      <div className='SlideBar'>
         {
          props.slides.map((slideInfo) => (
           <div>
