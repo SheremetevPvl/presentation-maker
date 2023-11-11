@@ -1,0 +1,5 @@
+.SlidesDisplay 
+{
+    display: flex;
+    flex-direction: row;
+}

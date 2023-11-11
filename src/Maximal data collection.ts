@@ -1,4 +1,4 @@
-import { Doc, TextBlock, Page, Primitiv, ImageBlock, Slide, PageInfo } from './Types and examples'
+import { Doc, TextBlock, Primitiv, ImageBlock, Slide, PageInfo } from './Types and examples'
 
 const textblock: TextBlock = {
     id: 1,
@@ -112,17 +112,10 @@ const primitiv2: Primitiv = {
     }
 }
 
-const Slide1: Page = {
-    elements: [textblock, primitiv, imageblock],
-    id: 1,
-}
-const Slide2: Page = {
-    elements: [textblock1, primitiv1, imageblock1],
-    id: 2,
-}
 const slide1: Slide = [textblock, primitiv2, imageblock]
 const slide2: Slide = [textblock1, primitiv1, imageblock1]
-const slide3: Slide = [primitiv2]
+const slide3: Slide = [primitiv]
+
 const pageinfo1: PageInfo = {
     slide: slide1,
     selected: false,
@@ -140,7 +133,7 @@ const pageinfo3: PageInfo = {
 const doc: Doc = {
     name: 'mypresentation',
     pages: [
-        pageinfo1, pageinfo2,
+        pageinfo1, pageinfo2, pageinfo3
     ],
     current: pageinfo1
 }
