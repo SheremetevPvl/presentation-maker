@@ -135,6 +135,6 @@ const doc: Doc = {
     pages: [
         pageinfo1, pageinfo2, pageinfo3
     ],
-    current: pageinfo1
+    current: pageinfo2
 }
 export  { doc };

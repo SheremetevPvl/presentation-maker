@@ -9,6 +9,8 @@ type RenderProps = {
     slide: Array< TextBlock | ImageBlock | Primitiv>;
   };
 
+//в map для ключа использовать id чтобы не пересчитывались элементы
+
 const Render = (props: RenderProps) => {
     return (
       <div className="SmallSlide">
