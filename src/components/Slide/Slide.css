@@ -2,9 +2,7 @@
 {
     width: 800px;
     height: 500px;
-    border-width: medium;
-    border-color: black;
-    border: solid;
+    border: solid 2px rgb(54, 54, 54);
     position: relative;
-    margin-left: 100px;
+    margin: 20px auto;
 }

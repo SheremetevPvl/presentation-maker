@@ -1,6 +1,27 @@
 import { CSSProperties } from 'react';
 import {TextBlock, Char} from '../../Types and examples';
 
+
+
+type CharObjectProps = {
+  data: Char;
+  decrease: number;
+}
+
+const CharObject = (props: CharObjectProps) => {
+  const data = props.data
+
+  const CharStyle: CSSProperties =
+  {
+    fontSize: data.fontsize / props.decrease,
+    fontFamily: data.fontfamily,
+    color: data.color,
+  }
+
+  return <span style={CharStyle}>{data.value}</span>
+}
+
+
 type TextProps = {
     data: TextBlock;
     decrease: number;
@@ -29,23 +50,8 @@ type TextProps = {
       </div>
     )
 }
-type CharObjectProps = {
-    data: Char;
-    decrease: number;
-  }
-  
-  const CharObject = (props: CharObjectProps) => {
-    const data = props.data
-  
-    const CharStyle: CSSProperties =
-    {
-      fontSize: data.fontsize / props.decrease,
-      fontFamily: data.fontfamily,
-      color: data.color,
-    }
 
-    return <span style={CharStyle}>{data.value}</span>
-  }
   
+
 
 export default TextSlide

@@ -1,11 +1,21 @@
 .SmallSlide
 {
+    position: relative;
     width: 200px;
     height: 125px;
-    border-width: medium;
-    border-color: black;
-    border: solid;
+    border: solid 1.5px rgb(170, 170, 170);
+    border-radius: 10px;
+}
+.SmallSlideSelect
+{
     position: relative;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    width: 200px;
+    height: 125px;
+    border: solid blue 3px;
+    border-radius: 10px;
+    
+}
+
+.Slides {
+    margin: 50px auto; 
 }

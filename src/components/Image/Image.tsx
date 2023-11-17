@@ -1,4 +1,4 @@
-import "../../Types and examples";
+
 import { ImageBlock } from "../../Types and examples";
 import { CSSProperties } from "react";
 

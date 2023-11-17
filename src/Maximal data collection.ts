@@ -119,15 +119,18 @@ const slide3: Slide = [primitiv]
 const pageinfo1: PageInfo = {
     slide: slide1,
     selected: false,
+    id: '1',
 }
 const pageinfo2: PageInfo = {
     slide: slide2,
-    selected: false,
+    selected: true,
+    id: '2',
 }
 
 const pageinfo3: PageInfo = {
     slide: slide3,
     selected: false,
+    id: '3',
 }
 
 const doc: Doc = {
@@ -135,6 +138,7 @@ const doc: Doc = {
     pages: [
         pageinfo1, pageinfo2, pageinfo3
     ],
-    current: pageinfo1
+    current: pageinfo1,
+    selectSlides: [pageinfo2, pageinfo3],
 }
 export  { doc };

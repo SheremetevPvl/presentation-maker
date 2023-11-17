@@ -1,5 +1,4 @@
-import '../../Types and examples'
-import { Page, TextBlock, Primitiv, ImageBlock, PageInfo } from '../../Types and examples';
+import {TextBlock, Primitiv, ImageBlock, PageInfo } from '../../Types and examples';
 import Textblock from '../TextBlock/TextBlock';
 import PrimitivObg from '../Primitiv/Primitiv';
 import Image from '../Image/Image';

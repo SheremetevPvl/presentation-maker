@@ -1,5 +1,3 @@
-export type {Slide, TextBlock, ImageBlock, Primitiv, Page, Doc, History, Char, PageInfo, Objects };
-export { textblock, doc };
 
 
 type Operation = {
@@ -69,6 +67,7 @@ type Slide = Array<TextBlock | ImageBlock | Primitiv>
 
 type PageInfo = {
     selected: boolean,
+    id: string,
     slide: Slide,
 } 
 
@@ -76,6 +75,7 @@ type Doc = {
     name: string,
     pages: Array<PageInfo>,
     current: PageInfo,
+    selectSlides: Array<PageInfo>,
 }
 
 const textblock: TextBlock = {
@@ -117,16 +117,12 @@ const primitiv: Primitiv = {
     }
 }
 
-const page: Page = {
-    elements: [textblock, primitiv, imageblock],
-    id: 1,
-}
-
 const slide1: Slide = [textblock, primitiv, imageblock]
 
 const pageinfo: PageInfo = {
     slide: slide1,
     selected: false,
+    id: '1',
 }
 
 const doc: Doc = {
@@ -134,5 +130,8 @@ const doc: Doc = {
     pages: [
         pageinfo
     ],
-    current: pageinfo
+    current: pageinfo,
+    selectSlides: [pageinfo],
 }
+export type {Slide, TextBlock, ImageBlock, Primitiv, Page, Doc, History, Char, PageInfo, Objects };
+export { textblock, doc };

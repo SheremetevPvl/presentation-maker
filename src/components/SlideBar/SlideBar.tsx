@@ -1,21 +1,19 @@
-import '../../Types and examples'
 import { PageInfo } from '../../Types and examples';
 import Render from '../Render/Render';
 import './SlideBar.css';
 
 type SlideBarProps = {
     slides: PageInfo[];
-    activeSlideIndex: number;
-    setActiveSlideIndex: (i: number) => void;
+    selectSlides: PageInfo[];
   };
 
-const SlideBar = (props: SlideBarProps) => {
+const SlideBar = ({ selectSlides, slides }: SlideBarProps) => {
     return (
       <div className='SlideBar'>
         {
-         props.slides.map((slideInfo) => (
-          <div>
-            <Render selected={slideInfo.selected} slide={slideInfo.slide}/>
+         slides.map((slide) => (
+          <div key={slide.id}>
+            <Render selected={selectSlides.includes(slide)} slide={slide.slide}/>
           </div>
          ))
         }
