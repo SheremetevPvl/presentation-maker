@@ -1,8 +1,19 @@
 import './ToolBar.css'; 
+import '../Scripts/SaveToJSON';
+import {saveJsonObjToFile} from '../Scripts/SaveToJSON';
 
 function DownloadButton() {
     return (
-        <button className='Button TextButton'>Download</button>
+        <button className='Button TextButton' onClick={saveJsonObjToFile}>Download</button>
+    )
+}
+
+function AddYourFileButton() {
+    return (
+        <div className='InputWrapper'>
+            <input className='Input' type="file" id="input_file"/>
+            <label className='Button TextButton InputLabel' htmlFor="input_file">Change my file</label>
+        </div>
     )
 }
 
@@ -67,6 +78,7 @@ function ToolBar() {
     return (
         <div className='ToolBar'>
             <DownloadButton />
+            <AddYourFileButton />
             <AddSlide />
             <UndoButton/>
             <RedoButton/>
