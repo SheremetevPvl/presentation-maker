@@ -6,7 +6,7 @@ import './Render.css';
 type RenderProps = {
     selected: boolean,
     slide: Array< TextBlock | ImageBlock | Primitiv>,
-
+    id: string
   };
  
   //в map для ключа использовать id чтобы не пересчитывались элементы
@@ -23,8 +23,8 @@ const Render = (props: RenderProps) => {
   
     return (
       <div className = {classSlide}>
-          {props.slide.map((obj, id) => (
-            <EditorObject key={id} data={obj} preview={true}/>
+          {props.slide.map((obj) => (
+            <EditorObject key={props.id} data={obj} preview={true}/>
           ))}
       </div>
     )

@@ -4,16 +4,17 @@ import './SlideBar.css';
 
 type SlideBarProps = {
     slides: PageInfo[];
-    selectSlides: PageInfo[];
+    //selectSlides: PageInfo[];
   };
 
-const SlideBar = ({ selectSlides, slides }: SlideBarProps) => {
+const SlideBar = ( props : SlideBarProps) => {
     return (
       <div className='SlideBar'>
         {
-         slides.map((slide) => (
+         props.slides.map((slide) => (
           <div key={slide.id}>
-            <Render selected={selectSlides.includes(slide)} slide={slide.slide}/>
+            <Render selected={slide.selected} slide={slide.slide} id={slide.id}/>
+            {/* <Render selected={selectSlides.includes(slide)} slide={slide.slide} id={slide.id}/> */}
           </div>
          ))
         }

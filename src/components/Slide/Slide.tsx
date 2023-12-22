@@ -1,13 +1,21 @@
-import {TextBlock, Primitiv, ImageBlock, PageInfo } from '../../Types and examples';
+import {TextBlock, Primitiv, ImageBlock, Doc} from '../../Types and examples';
 import Textblock from '../TextBlock/TextBlock';
 import PrimitivObg from '../Primitiv/Primitiv';
 import Image from '../Image/Image';
 import './Slide.css';
 
+type props= {
+    doc: Doc,
+    curr: string
+}
 
 
-function ShowSlide(Slide: PageInfo) {
-    const element: Array<TextBlock | Primitiv | ImageBlock> = Slide.slide
+function ShowSlide(props: props) {
+    const Slides = props.doc.pages
+
+    const itemWithId = Slides.find(item => item.id === props.curr);
+    if (itemWithId){
+    const element: Array<TextBlock | Primitiv | ImageBlock> = itemWithId.slide
     const decrease: number = 1;
     return (
         <div className='Slide'>
@@ -24,7 +32,13 @@ function ShowSlide(Slide: PageInfo) {
                 return null;
             })}
         </div>
-    )
+    )}
+    else {
+        return (
+        <div className='Slide'>
+
+        </div>)
+    }
 }
 
 export default ShowSlide

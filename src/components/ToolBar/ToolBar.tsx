@@ -1,12 +1,11 @@
 import './ToolBar.css'; 
-import '../Scripts/SaveToJSON';
-import {saveJsonObjToFile} from '../Scripts/SaveToJSON';
+//import {saveJsonObjToFile} from '../Scripts/SaveToJSON';
 
-function DownloadButton() {
-    return (
-        <button className='Button TextButton' onClick={saveJsonObjToFile}>Download</button>
-    )
-}
+// function DownloadButton() {
+//     return (
+//         <button className='Button TextButton' onClick={saveJsonObjToFile}>Download</button>
+//     )
+// }
 
 function AddYourFileButton() {
     return (
@@ -77,7 +76,6 @@ function AddPrimitivButton() {
 function ToolBar() {
     return (
         <div className='ToolBar'>
-            <DownloadButton />
             <AddYourFileButton />
             <AddSlide />
             <UndoButton/>

@@ -74,8 +74,7 @@ type PageInfo = {
 type Doc = {
     name: string,
     pages: Array<PageInfo>,
-    current: PageInfo,
-    selectSlides: Array<PageInfo>,
+    current: string,
 }
 
 const textblock: TextBlock = {
@@ -130,8 +129,7 @@ const doc: Doc = {
     pages: [
         pageinfo
     ],
-    current: pageinfo,
-    selectSlides: [pageinfo],
+    current: pageinfo.id,
 }
 export type {Slide, TextBlock, ImageBlock, Primitiv, Page, Doc, History, Char, PageInfo, Objects };
 export { textblock, doc };

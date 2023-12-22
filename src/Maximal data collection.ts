@@ -129,7 +129,7 @@ const pageinfo2: PageInfo = {
 
 const pageinfo3: PageInfo = {
     slide: slide3,
-    selected: false,
+    selected: true,
     id: '3',
 }
 
@@ -138,7 +138,6 @@ const doc: Doc = {
     pages: [
         pageinfo1, pageinfo2, pageinfo3
     ],
-    current: pageinfo1,
-    selectSlides: [pageinfo2, pageinfo3],
+    current: pageinfo1.id,
 }
 export  { doc };
