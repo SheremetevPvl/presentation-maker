@@ -1,0 +1,60 @@
+.ToolBar 
+{
+    display: flex;
+    background-color: #edf2fa;
+    border: none;
+    border-radius: 24px;
+    margin: 6px 16px 8px 16px;
+    min-height: 40px;
+    padding: 0 8px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.Button
+{
+    padding: 0;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #4d5a6f0d;
+    outline: none;
+    margin: auto 10px;
+    padding: 0 6px;
+    
+}
+.Operation 
+{
+    border-radius: 4px;
+    height: 18px;
+    width: 18px;
+    line-height: 28px;
+    margin: 5px 1px;
+}
+.Undo
+{
+    transform: scale(-1, 1);
+}
+.TextButton {
+    color: rgba(0,0,0,.7);
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.Input {
+    position: absolute;
+    visibility: hidden;
+}
+
+.InputLabel {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    border-color: black;
+    border-width: 2px;
+}
+
+.InputWrapper {
+    border: solid black 2px;
+    border-radius: 10px;
+}
