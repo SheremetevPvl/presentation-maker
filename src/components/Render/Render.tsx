@@ -1,7 +1,6 @@
 import { TextBlock , ImageBlock , Primitiv} from "../../Types and examples";
 import EditorObject from "../EditorObjects/EditorObjects";
-import './Render.css';
-
+import styles from '../Render/Render.module.css';
 
 type RenderProps = {
     selected: boolean,
@@ -12,13 +11,13 @@ type RenderProps = {
   //в map для ключа использовать id чтобы не пересчитывались элементы
 const Render = (props: RenderProps) => {
 
-  let classSlide: string = "Slides ";
+  let classSlide: string = styles.Slides;
   if (props.selected) {
-    classSlide = classSlide + "SmallSlideSelect"
+    classSlide = classSlide + ' ' + styles.SmallSlideSelect
   }
   else
   {
-    classSlide = classSlide + "SmallSlide"
+    classSlide = classSlide + ' ' + styles.SmallSlide
   }
   
     return (

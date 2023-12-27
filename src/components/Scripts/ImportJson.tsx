@@ -1,3 +1,4 @@
+import styles from '../ToolBar/ToolBar.module.css'
 import { Doc } from '../../Types and examples';
 
 type ButtonProps = {
@@ -28,8 +29,10 @@ function ImportFile(props: ButtonProps) {
     input.click();
   }
 
+  const ImportFileClass = styles.Button + ' ' + styles.TextButton + ' ' + styles.InputLabel;
+
   return (
-    <button onClick= { uploadFile }> Import </button>
+    <button className={ImportFileClass} onClick= { uploadFile }> Import </button>
   );
 }
 

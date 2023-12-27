@@ -1,24 +1,11 @@
-import './ToolBar.css'; 
-//import {saveJsonObjToFile} from '../Scripts/SaveToJSON';
+ import styles from '../ToolBar/ToolBar.module.css';
 
-// function DownloadButton() {
-//     return (
-//         <button className='Button TextButton' onClick={saveJsonObjToFile}>Download</button>
-//     )
-// }
-
-function AddYourFileButton() {
-    return (
-        <div className='InputWrapper'>
-            <input className='Input' type="file" id="input_file"/>
-            <label className='Button TextButton InputLabel' htmlFor="input_file">Change my file</label>
-        </div>
-    )
-}
+const TextButtonClass = styles.Button + ' ' + styles.TextButton;
+const OperationUndoClass = styles.Operation + ' ' + styles.Undo;
 
 function AddSlide() {
     return (
-        <button className='Button TextButton'>NewSlide
+        <button className={TextButtonClass}>NewSlide
         </button>
     )
 }
@@ -26,40 +13,40 @@ function AddSlide() {
 
 function UndoButton() {
     return (
-        <button className='Button'>
-                <img  className='Operation Undo' src="https://cdn4.iconfinder.com/data/icons/ios-edge-glyph-9/25/Redo-3-1024.png" alt="" />
+        <button className={styles.Button}>
+                <img  className={OperationUndoClass} src="https://cdn4.iconfinder.com/data/icons/ios-edge-glyph-9/25/Redo-3-1024.png" alt="" />
         </button>
     )
 }
 
 function RedoButton() {
     return (
-        <button className='Button'>
-            <img  className='Operation ' src="https://cdn4.iconfinder.com/data/icons/ios-edge-glyph-9/25/Redo-3-1024.png" alt="" />
+        <button className={styles.Button}>
+            <img  className={styles.Operation} src="https://cdn4.iconfinder.com/data/icons/ios-edge-glyph-9/25/Redo-3-1024.png" alt="" />
         </button>
     )
 }
 
 function FontButton() {
     return (
-        <button className='Button TextButton'>Шрифт</button>
+        <button className={TextButtonClass}>Шрифт</button>
     )
 }
 function ColorButton() {
     return (
-        <button className='Button TextButton'>Цвет</button>
+        <button className={TextButtonClass}>Цвет</button>
     )
 }
 
 function AddTextButton() {
     return (
-        <button className='Button TextButton'>Текстовое поле</button>
+        <button className={TextButtonClass}>Текстовое поле</button>
     )
 }
 
 function AddImageButton() {
     return (
-        <button className='Button TextButton'>
+        <button className={TextButtonClass}>
             Вставить изображение
         </button>
     )
@@ -67,7 +54,7 @@ function AddImageButton() {
 
 function AddPrimitivButton() {
     return (
-        <button className='Button TextButton'>
+        <button className={TextButtonClass}>
             Фигура
         </button>
     )
@@ -75,8 +62,7 @@ function AddPrimitivButton() {
 
 function ToolBar() {
     return (
-        <div className='ToolBar'>
-            <AddYourFileButton />
+        <div className={styles.ToolBar}>
             <AddSlide />
             <UndoButton/>
             <RedoButton/>

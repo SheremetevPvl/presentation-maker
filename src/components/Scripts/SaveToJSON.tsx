@@ -1,4 +1,4 @@
-
+import styles from '../ToolBar/ToolBar.module.css';
 import { Doc } from '../../Types and examples';
 
 
@@ -24,9 +24,10 @@ function SaveToFile(props: ExportProps) {
         link.click();
     }
 
+    const ButtonTextClass = styles.Button + ' ' + styles.TextButton;
 
     return (
-        <button onClick= { downloadFile }> Export </button>
+        <button className={ButtonTextClass} onClick= { downloadFile }> Export </button>
       );
 }
 

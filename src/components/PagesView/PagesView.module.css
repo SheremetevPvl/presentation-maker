@@ -3,3 +3,11 @@
     display: flex;
     flex-direction: row;
 }
+
+.FileOp
+{
+    position: absolute;
+    margin-top: -41px;
+    margin-left: 38px;
+    display: flex;
+}

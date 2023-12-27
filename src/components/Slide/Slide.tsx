@@ -2,7 +2,7 @@ import {TextBlock, Primitiv, ImageBlock, Doc} from '../../Types and examples';
 import Textblock from '../TextBlock/TextBlock';
 import PrimitivObg from '../Primitiv/Primitiv';
 import Image from '../Image/Image';
-import './Slide.css';
+import styles from '../Slide/Slide.module.css';
 
 type props= {
     doc: Doc,
@@ -18,7 +18,7 @@ function ShowSlide(props: props) {
     const element: Array<TextBlock | Primitiv | ImageBlock> = itemWithId.slide
     const decrease: number = 1;
     return (
-        <div className='Slide'>
+        <div className={styles.Slide}>
             {element.map((element) =>
             {
                 if (element.type === "TextBlock") {
@@ -35,7 +35,7 @@ function ShowSlide(props: props) {
     )}
     else {
         return (
-        <div className='Slide'>
+        <div className={styles.Slide}>
 
         </div>)
     }
