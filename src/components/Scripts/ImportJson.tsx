@@ -1,5 +1,6 @@
 import { Doc } from '../../Types and examples';
 
+
 type ButtonProps = {
   action: (presentation: Doc) => void;
 };
@@ -18,7 +19,7 @@ function ImportFile(props: ButtonProps) {
       if (selectedFile) {
         const reader = new FileReader();
         reader.onload = () => {
-          const fileContent = JSON.parse(reader.result as string);
+          const fileContent = JSON.parse(reader.result as string) as Doc;
           setDoc(fileContent);
         };
         reader.readAsText(selectedFile);
@@ -29,7 +30,7 @@ function ImportFile(props: ButtonProps) {
   }
 
   return (
-    <button onClick= { uploadFile }> Import </button>
+    <button onClick={uploadFile}> Import </button>
   );
 }
 
