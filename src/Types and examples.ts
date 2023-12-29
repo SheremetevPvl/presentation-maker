@@ -69,6 +69,7 @@ type PageInfo = {
     selected: boolean,
     id: string,
     slide: Slide,
+    selectObjects: string | null;
 } 
 
 type Doc = {
@@ -114,6 +115,7 @@ const primitiv: Primitiv = {
         height: 14,
         boldcolor: '#7bctA',
     }
+
 }
 
 const slide1: Slide = [textblock, primitiv, imageblock]
@@ -122,6 +124,7 @@ const pageinfo: PageInfo = {
     slide: slide1,
     selected: false,
     id: '1',
+    selectObjects: null
 }
 
 const doc: Doc = {

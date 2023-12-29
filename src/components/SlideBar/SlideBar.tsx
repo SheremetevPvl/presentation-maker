@@ -1,20 +1,25 @@
-import { PageInfo } from '../../Types and examples';
-import Render from '../Render/Render';
 import styles from '../SlideBar/SlideBar.module.css';
+import { PageInfo, Doc } from '../../Types and examples';
+import Render from '../Render/Render';
+import { useState, useEffect } from 'react';
 
 type SlideBarProps = {
-    slides: PageInfo[];
-    //selectSlides: PageInfo[];
+  slides: PageInfo[];
+  action: (currId: string) => void; 
+};
+
+const SlideBar: React.FC<SlideBarProps> = (props) => {
+  const handlePageInfoClick = (id: string) => {
+    props.action(id);
   };
 
-const SlideBar = ( props : SlideBarProps) => {
+  
     return (
       <div className={styles.SlideBar}>
         {
          props.slides.map((slide) => (
-          <div key={slide.id}>
+          <div key={slide.id} onClick={() => handlePageInfoClick(slide.id)}>
             <Render selected={slide.selected} slide={slide.slide} id={slide.id}/>
-            {/* <Render selected={selectSlides.includes(slide)} slide={slide.slide} id={slide.id}/> */}
           </div>
          ))
         }

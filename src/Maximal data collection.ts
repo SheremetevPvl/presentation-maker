@@ -120,17 +120,20 @@ const pageinfo1: PageInfo = {
     slide: slide1,
     selected: false,
     id: '1',
+    selectObjects: null,
 }
 const pageinfo2: PageInfo = {
     slide: slide2,
     selected: true,
     id: '2',
+    selectObjects: null,
 }
 
 const pageinfo3: PageInfo = {
     slide: slide3,
     selected: true,
     id: '3',
+    selectObjects: null,
 }
 
 const doc: Doc = {

@@ -7,15 +7,14 @@ import SaveToFile  from '../Scripts/SaveToJSON';
 import ImportFile from '../Scripts/ImportJson';
 import { useState } from "react";
 
-//продумать хранение текущего слайда(лучше в модели) хранить id слайдов лучше не в хуке
-//добавить состояние выделения для слайдов и объектов
+
   
 
 function PagesView() {
     const [doc, setDoc] = useState<typeof TDoc>(TDoc);
     return ( 
         <div className={styles.SlidesDisplay}>
-           <SlideBar slides={doc.pages} />
+           <SlideBar slides={doc.pages} action={(currId) => setDoc({ ...doc, current: currId })}/>
            <ShowSlide doc ={doc} curr = {doc.current}/>
            <div className={styles.FileOp}>
                 <SaveToFile action={doc}/>

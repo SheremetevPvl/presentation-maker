@@ -7,11 +7,8 @@ type ExportProps = {
 }
 
 function SaveToFile(props: ExportProps) {
-    //const saveObj = { dataFile }; // tmp
 
-    // file setting
     const presentation = props.action;
-   // const src = "./images/save.png";
 
     const file = new Blob([JSON.stringify(presentation)], {
         type: "application.json",
@@ -27,7 +24,7 @@ function SaveToFile(props: ExportProps) {
     const ButtonTextClass = styles.Button + ' ' + styles.TextButton;
 
     return (
-        <button className={ButtonTextClass} onClick= { downloadFile }> Export </button>
+        <button className={ButtonTextClass} onClick= {downloadFile}> Export </button>
       );
 }
 
