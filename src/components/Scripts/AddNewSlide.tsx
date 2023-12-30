@@ -1,7 +1,5 @@
 import { PageInfo } from '../../Types and examples';
-import styles from "../SlideBar/SlideBar.module.css";
-
-const TextButtonClass = styles.Button + ' ' + styles.TextButton;
+import styles from '../SlideBar/SlideBar.module.css';
 
 type Data = {
     slides: PageInfo[]
@@ -22,7 +20,6 @@ const AddNewSlideButton: React.FC<Data>= (props) => {
           slide: [],
           selectObjects: null,
       }
-      const prevId = Number(id);
       newSlides.splice(Number(id), 0, newSlide);
       for (let I = Number(id); I < newSlides.length; I++)
       {
@@ -31,9 +28,11 @@ const AddNewSlideButton: React.FC<Data>= (props) => {
       }
     };
   
+    const ImportFileClass = styles.Button + ' ' + styles.TextButton + ' ' + styles.InputLabel;
+
     return (
       <div>
-        <button className={TextButtonClass} onClick={() => HandleAdd(String(currid), newSlides)}>NewSlide</button>
+        <button className={ImportFileClass} onClick={() => HandleAdd(String(currid), newSlides)}>NewSlide</button>
       </div>
     );
   };

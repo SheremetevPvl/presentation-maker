@@ -1,7 +1,5 @@
 import { PageInfo } from '../../Types and examples';
-import styles from "../SlideBar/SlideBar.module.css";
-
-const ButtonClassname = styles.Button + " " + styles.TextButton
+import styles from '../SlideBar/SlideBar.module.css';
 
 type Data = {
     slides: PageInfo[]
@@ -24,6 +22,8 @@ const DeleteButton: React.FC<Data>= (props) => {
       }
     };
   
+    const ButtonClassname = styles.Button + ' ' + styles.TextButton + ' ' + styles.InputLabel;
+
     return (
       <div>
         <button className={ButtonClassname} onClick={() => handleDelete(String(currid), newSlides)}>Delete slide</button>
