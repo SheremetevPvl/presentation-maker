@@ -26,7 +26,7 @@ const DeleteButton: React.FC<Data>= (props) => {
   
     return (
       <div>
-        <button className={ButtonClassname} onClick={() => handleDelete(String(currid), newSlides)}>Delete</button>
+        <button className={ButtonClassname} onClick={() => handleDelete(String(currid), newSlides)}>Delete slide</button>
       </div>
     );
   };
