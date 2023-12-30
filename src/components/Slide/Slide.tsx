@@ -9,7 +9,7 @@ import { PresentationContext } from "../Context/Context";
 
 type props= {
     doc: Doc,
-    curr: string
+    curr: string | null
 }
 
 

@@ -5,6 +5,7 @@ import ShowSlide from '../Slide/Slide';
 import styles from "./PagesView.module.css";
 import SaveToFile  from '../Scripts/SaveToJSON';
 import ImportFile from '../Scripts/ImportJson';
+import DeleteSlide from "../Scripts/DeleteSlide";
 import { useState } from "react";
 
 
@@ -19,6 +20,7 @@ function PagesView() {
            <div className={styles.FileOp}>
                 <SaveToFile action={doc}/>
                 <ImportFile action={setDoc}/>
+                <DeleteSlide slides={doc.pages} current={doc.current} action={(currId, slides) => setDoc({...doc, current: currId, pages: slides})}/>
            </div>
         </div>
     )

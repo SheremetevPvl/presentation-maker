@@ -1,7 +1,6 @@
 import styles from '../SlideBar/SlideBar.module.css';
 import { PageInfo, Doc } from '../../Types and examples';
 import Render from '../Render/Render';
-import { useState, useEffect } from 'react';
 
 type SlideBarProps = {
   slides: PageInfo[];
@@ -13,7 +12,6 @@ const SlideBar: React.FC<SlideBarProps> = (props) => {
     props.action(id);
   };
 
-  
     return (
       <div className={styles.SlideBar}>
         {

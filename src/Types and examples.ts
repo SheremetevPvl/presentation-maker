@@ -75,7 +75,7 @@ type PageInfo = {
 type Doc = {
     name: string,
     pages: Array<PageInfo>,
-    current: string,
+    current: string | null,
 }
 
 const textblock: TextBlock = {
