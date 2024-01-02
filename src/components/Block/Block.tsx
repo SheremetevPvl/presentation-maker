@@ -1,22 +1,24 @@
-import styles from '../Slide/Slide.module.css';
-import {TextBlock, Primitiv, ImageBlock, Doc, Block} from '../../Types and examples';
+import styles from '../Block/Block.module.css';
+import {TextBlock, Primitiv, ImageBlock, Doc} from '../../Types and examples';
 import Textblock from '../TextBlock/TextBlock';
 import PrimitivObg from '../Primitiv/Primitiv';
 import Image from '../Image/Image';
-import { PresentationContext } from "../Context/Context";
-import { CSSProperties, useContext, useEffect, useRef } from "react";
+//import { PresentationContext } from "../Context/Context";
+import { CSSProperties, useEffect, useRef, useState } from "react";
 import { useDragAndDropObject } from '../hooks/DragAndDrop/DnDobj';
 
 type BlockProps = {
-    data: Block& TextBlock | Block& ImageBlock | Block& Primitiv;
+    data:  TextBlock | ImageBlock | Primitiv;
     id: string;
     isWorkSpace: boolean;
+    doc: Doc;
+    setDoc: (presentation: Doc) => void;
 }
 
-function ShowBlock({data, id, isWorkSpace}: BlockProps) {
-    const { selectedBlockId, setSelectedBlockId } = useContext(PresentationContext)
-    const { presentation, setPresentation } = useContext(PresentationContext)
-    const newPresentation = { ...presentation }
+function ShowBlock({data, id, isWorkSpace, setDoc, doc}: BlockProps) {
+    //const { selectedBlockId, setSelectedBlockId } = useContext(PresentationContext)
+    const [selectedBlockId, setSelectedBlockId] = useState("0")
+    const newPresentation = { doc }
     const { registerDndItem } = useDragAndDropObject()
     const ref = useRef<HTMLDivElement>(null)
     const position: CSSProperties = {
@@ -59,9 +61,12 @@ function ShowBlock({data, id, isWorkSpace}: BlockProps) {
                                 x: dropEvent.clientX + (data.coordinates.x - event.clientX),
                                 y: dropEvent.clientY + (data.coordinates.y - event.clientY),
                             }
-                            const block = newPresentation.pages[Number(newPresentation.current)].slide?.find((elem) => elem.id == Number(id))!
-                            block.coordinates = position
-                            setPresentation(newPresentation)
+                            const currentPage = newPresentation.doc.pages?.[Number(newPresentation.doc.current)];
+                            const block = currentPage?.slide?.find((elem) => elem.id === Number(id));
+                            if (block) {
+                                block.coordinates = position
+                                setDoc(newPresentation.doc)
+                            }
                         },
                     })
             }
@@ -71,9 +76,13 @@ function ShowBlock({data, id, isWorkSpace}: BlockProps) {
                         height: data.size.height + event.deltaY,
                         width: data.size.width + event.deltaY,
                     }
-                    const currentBlock = newPresentation.pages[Number(newPresentation.current)].slide?.find((element) => element.id === Number(id))!
-                    currentBlock.size = newSize
-                    setPresentation(newPresentation)
+                    const currentPage = newPresentation.doc.pages?.[Number(newPresentation.doc.current)];
+                    const currentBlock = currentPage?.slide?.find((elem) => elem.id === Number(id));
+                    if (currentBlock) {
+                        currentBlock.size = newSize
+                        setDoc(newPresentation.doc)
+                    }
+                    setDoc(newPresentation.doc)
                 }
             }
             ref.current!.addEventListener('mousedown', onMouseDown)
@@ -85,7 +94,8 @@ function ShowBlock({data, id, isWorkSpace}: BlockProps) {
         }, [selectedBlockId])
     }
     const decrease: number = 1;
-    return (
+    //console.log(styles.block)
+        return (
         <div className={styles.block} id={id} style={position} ref={ref}>
             {data.type === "TextBlock" && <Textblock data={data} decrease={decrease}/>}
             {data.type === "Image" && <Image data={data} decrease={decrease}/>}

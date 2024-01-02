@@ -21,6 +21,7 @@ module.exports = {
     "rules": {
         "no-duplicate-imports": "error",
         "no-self-compare": "error",
-        "no-use-before-define": "error"        
+        "no-use-before-define": "error" ,
+        '@typescript-eslint/no-unsafe-call': 'off',       
     }
-  };
+  }

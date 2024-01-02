@@ -2,9 +2,6 @@ import { RefObject, useCallback } from "react";
 
 export type DndItemInfo = { elementRef: RefObject<HTMLDivElement> }
 
-export type RegisterDndItemFn = (dndItemInfo: DndItemInfo) => {
-    onDragStart: OnDragStartFn
-}
 
 type OnDragStartFn = (args: {
     onDrag: (event: MouseEvent) => void,
@@ -40,6 +37,9 @@ const useDragAndDropObject = () => {
     return {
         registerDndItem
     }
+}
+export type RegisterDndItemFn = (dndItemInfo: DndItemInfo) => {
+    onDragStart: OnDragStartFn
 }
 
 export { useDragAndDropObject }

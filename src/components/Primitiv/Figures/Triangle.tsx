@@ -11,8 +11,6 @@ const Triangle = (props: FigureProps) => {
     const Params: CSSProperties = 
     {
       position: 'absolute',
-      marginTop: props.data.coordinates.y / props.decrease,
-      marginLeft: props.data.coordinates.x / props.decrease,
       borderLeft: props.data.size.width / 2 / props.decrease,
       borderLeftStyle: 'solid',
       borderLeftColor: 'transparent',

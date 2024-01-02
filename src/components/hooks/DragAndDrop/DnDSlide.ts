@@ -1,41 +1,69 @@
-import { useCallback } from "react";
+import { RefObject, useCallback, useRef } from "react";
 
-type OnDragStartFn = (args: { onDrag: (event: MouseEvent) => void }) => void;
+type DndItemInfo = { elementRef: RefObject<HTMLDivElement> }
 
-const useDnDBlock = () => {
-  const registerDndItem = useCallback(() => {
-    const onChangePosition: OnDragStartFn = ({ onDrag }) => {
-      // item.startY = item.elementRef.current!.getBoundingClientRect().top;
-      // item.startX = item.elementRef.current!.getBoundingClientRect().left;
+type InternalDndItemInfo = DndItemInfo & {
+  startY: number,
+}
 
-      const onMouseUp = () => {
-        window.removeEventListener("mousemove", onDrag);
-        window.removeEventListener("mouseup", onMouseUp);
-      };
-      window.addEventListener("mousemove", onDrag);
-      window.addEventListener("mouseup", onMouseUp);
-    };
+type OnDragStartFn = (args: {
+  onDrag: (event: MouseEvent) => void
+  onDrop: (event: MouseEvent) => void
+}) => void
 
-    const onChangeSize: OnDragStartFn = ({ onDrag }) => {
-      // item.startY = item.elementRef.current!.getBoundingClientRect().top;
-      // item.startX = item.elementRef.current!.getBoundingClientRect().left;
+type RegisterDndItemFn = (index: number, dndItemInfo: DndItemInfo) => {
+  onDragStart: OnDragStartFn,
+}
 
-      const onMouseUp = () => {
-        window.removeEventListener("mousemove", onDrag);
-        window.removeEventListener("mouseup", onMouseUp);
-      };
-      window.addEventListener("mousemove", onDrag);
-      window.addEventListener("mouseup", onMouseUp);
-    };
+type UseDraggableSlidesParams = {
+  onOrderChange: (fromIndex: number, toIndex: number) => void
+}
 
-    return {
-      onChangePosition,
-      onChangeSize,
-    };
-  }, []);
-  return {
-    registerDndItem,
-  };
-};
+const useDragAndDropSlide = ({ onOrderChange }: UseDraggableSlidesParams) => {
+  const slidesRef = useRef<Array<InternalDndItemInfo>>([])
+  const registerDndItem = useCallback((index: number, dndItemInfo: DndItemInfo) => {
+    const slide = {
+      ...dndItemInfo,
+      startY: 0,
+    }
+    slidesRef.current[index] = slide
 
-export { useDnDBlock };
+    const onDragStart: OnDragStartFn = ({ onDrag, onDrop }) => {
+      slide.startY = slide.elementRef.current!.getBoundingClientRect().top
+      const onMouseUp = (event: MouseEvent) => {
+        let newIndex = 0
+        const draggableItemTop = slide.elementRef.current!.getBoundingClientRect().top
+        for (let i = 0; i < slidesRef.current.length; ++i) {
+          const currItem = slidesRef.current[i].elementRef.current!
+          if (currItem.getBoundingClientRect().top > draggableItemTop) {
+            newIndex = draggableItemTop >= slide.startY
+              ? i - 1
+              : i
+            break
+          }
+          newIndex = i
+        }
+        onOrderChange(index, newIndex)
+        console.log(index, newIndex)
+        onDrop(event)
+
+        window.removeEventListener('mousemove', onDrag)
+        window.removeEventListener('mouseup', onMouseUp)
+      }
+      window.addEventListener('mousemove', onDrag)
+      window.addEventListener('mouseup', onMouseUp)
+    }
+
+    return { onDragStart }
+
+  }, [onOrderChange])
+
+  return { registerDndItem }
+}
+
+export { useDragAndDropSlide }
+
+export type {
+  DndItemInfo,
+  RegisterDndItemFn,
+}

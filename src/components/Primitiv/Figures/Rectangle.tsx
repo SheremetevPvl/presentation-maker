@@ -11,8 +11,6 @@ const Rectangle = (props: FigureProps) => {
     const Params: CSSProperties = 
     {
       position: 'absolute',
-      marginTop: props.data.coordinates.y / props.decrease,
-      marginLeft: props.data.coordinates.x / props.decrease,
       borderBlockColor: props.data.data.boldcolor,
       backgroundColor: props.data.data.color,
       width: props.data.size.width / props.decrease,

@@ -1,7 +1,8 @@
-import { Objects,  } from "../../Types and examples"
+import { Objects  } from "../../Types and examples"
 import TextSlide from "../TextBlock/TextBlock"
 import Image from "../Image/Image"
 import SlidePrimitive from "../Primitiv/Primitiv"
+import { CSSProperties } from "react";
 
 
 type SlideObjectProps = {
@@ -25,9 +26,14 @@ type SlideObjectProps = {
   
   const EditorObject = (props: SlideObjectProps) => {
     const data = props.data;
-  
+    const Params: CSSProperties = 
+    {
+      position: "absolute",
+      left: props.data.coordinates.x / 4,
+      top: props.data.coordinates.y / 4,
+    }
     return (
-      <div>
+      <div style={Params}>
         {getObject(data)}
       </div>
     )

@@ -4,7 +4,7 @@ import Textblock from '../TextBlock/TextBlock';
 import PrimitivObg from '../Primitiv/Primitiv';
 import Image from '../Image/Image';
 import { CSSProperties, useContext, useEffect, useRef } from "react";
-import { useDnDBlock } from '../hooks/DragAndDrop/DnDSlide'
+//import { useDragAndDropSlide } from '../hooks/DragAndDrop/DnDSlide'
 import { PresentationContext } from "../Context/Context";
 
 type props= {

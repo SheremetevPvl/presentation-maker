@@ -1,6 +1,6 @@
 import { ImageBlock } from "../../Types and examples";
 import { CSSProperties } from "react";
-import { SizeOfObj } from "../../Types and examples";
+//import { SizeOfObj } from "../../Types and examples";
 
 // type Pos = {
 //   x: number,
@@ -16,8 +16,7 @@ type ImageProps = {
 function Image(props: ImageProps) {   
    const style: CSSProperties = 
    {
-      marginLeft: props.data.coordinates.x / props.decrease,
-      marginTop: props.data.coordinates.y / props.decrease,
+     
       width: props.data.size.width / props.decrease,
       height: props.data.size.height / props.decrease,
       position: 'absolute',

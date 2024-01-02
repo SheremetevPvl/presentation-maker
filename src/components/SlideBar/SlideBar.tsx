@@ -1,5 +1,5 @@
 import styles from '../SlideBar/SlideBar.module.css';
-import { PageInfo, Doc } from '../../Types and examples';
+import { PageInfo } from '../../Types and examples';
 import Render from '../Render/Render';
 
 type SlideBarProps = {

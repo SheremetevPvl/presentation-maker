@@ -1,14 +1,18 @@
 import { ReportHandler } from 'web-vitals';
 
-const reportWebVitals = (onPerfEntry?: ReportHandler) => {
+const reportWebVitals = async (onPerfEntry?: ReportHandler) => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
-    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+    try {
+      const webVitals = await import('web-vitals');
+      const { getCLS, getFID, getFCP, getLCP, getTTFB } = webVitals;
       getCLS(onPerfEntry);
       getFID(onPerfEntry);
       getFCP(onPerfEntry);
       getLCP(onPerfEntry);
       getTTFB(onPerfEntry);
-    });
+    } catch (error) {
+      console.error('An error occurred while loading web-vitals:', error);
+    }
   }
 };
 

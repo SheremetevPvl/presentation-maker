@@ -13,10 +13,11 @@ import { useState } from "react";
 
 function PagesView() {
     const [doc, setDoc] = useState<typeof TDoc>(TDoc);
+   // const { doc } = useContext(PresentationContext)
     return ( 
         <div className={styles.SlidesDisplay}>
            <SlideBar slides={doc.pages} action={(currId) => setDoc({ ...doc, current: currId })}/>
-           <ShowSlide doc={doc} curr={doc.current}/>
+           <ShowSlide doc={doc} curr={doc.current} isWorkSpace={true} action={setDoc}/>
            {/* <ShowSlide doc ={doc} curr = {doc.current}/> */}
            <div className={styles.FileOp}>
                 <SaveToFile action={doc}/>
