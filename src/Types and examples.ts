@@ -11,6 +11,11 @@ type History = {
     topOperation: Operation;
 };
 
+type SizeOfObj = {
+    width: number,
+    height: number,
+}
+
 type Char = {
     id: number,
     value: string,
@@ -29,6 +34,7 @@ type Block = {
     id: number
     coordinates: Coordinates,
     type: 'TextBlock' | 'Image' | 'Primitiv'
+    size: SizeOfObj,
 }
 
 type Primitiv = Block & {
@@ -37,8 +43,6 @@ type Primitiv = Block & {
     {
         shape: "Triangle" | "Circle" | "Rectangle",
         color: string,
-        width: number,
-        height: number,
         boldcolor: string,
     }
 }
@@ -53,8 +57,6 @@ type TextBlock = Block & {
 type ImageBlock = Block & {
     type: 'Image'
     urldata: string,
-    width: number,
-    height: number,
 }
 
 type Page = {
@@ -92,6 +94,10 @@ const textblock: TextBlock = {
         color: '#adfe6f',
         background: '#adfe6f',
     }],
+    size: {
+        width: 100,
+        height: 200,
+    }
 }
 
 const imageblock: ImageBlock = {
@@ -99,8 +105,10 @@ const imageblock: ImageBlock = {
     coordinates: { x: 10, y: 20 },
     type: 'Image',
     urldata: 'https://UsersImage',
-    width: 200,
-    height: 100,
+    size: {
+        width: 200,
+        height: 100,
+    }
 }
 
 const primitiv: Primitiv = {
@@ -111,11 +119,12 @@ const primitiv: Primitiv = {
     {
         shape: 'Rectangle',
         color: '#7bctA',
-        width: 12,
-        height: 14,
         boldcolor: '#7bctA',
+    },
+    size: {
+        width: 200,
+        height: 100,
     }
-
 }
 
 const slide1: Slide = [textblock, primitiv, imageblock]
@@ -134,5 +143,5 @@ const doc: Doc = {
     ],
     current: pageinfo.id,
 }
-export type {Slide, TextBlock, ImageBlock, Primitiv, Page, Doc, History, Char, PageInfo, Objects };
+export type {Slide, TextBlock, ImageBlock, Primitiv, Page, Doc, History, Char, PageInfo, Objects, SizeOfObj, Block };
 export { textblock, doc };

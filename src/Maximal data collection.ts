@@ -24,6 +24,10 @@ const textblock: TextBlock = {
         }
     ],
     type: 'TextBlock',
+    size: {
+        width: 100,
+        height: 100,
+    }
 }
 
 const imageblock: ImageBlock = {
@@ -31,8 +35,10 @@ const imageblock: ImageBlock = {
     coordinates: { x: 30, y: 50 },
     urldata: './logo192.png',
     type: 'Image',
-    width: 200,
-    height: 100,
+    size: {
+        width: 200,
+        height: 100,
+    }  
 }
 
 const primitiv: Primitiv = {
@@ -43,9 +49,11 @@ const primitiv: Primitiv = {
     {
         shape: 'Rectangle',
         color: 'blue',
+        boldcolor: 'black',
+    },
+    size: {
         width: 100,
         height: 200,
-        boldcolor: 'black',
     }
 }
 
@@ -73,6 +81,10 @@ const textblock1: TextBlock = {
         }
     ],
     type: 'TextBlock',
+    size: {
+        width: 100,
+        height: 100,
+    }
 }
 
 const imageblock1: ImageBlock = {
@@ -80,8 +92,10 @@ const imageblock1: ImageBlock = {
     coordinates: { x: 30, y: 20 },
     urldata: './logo512.png',
     type: 'Image',
-    width: 200,
-    height: 100,
+    size: {
+        width: 200,
+        height: 100,
+    }
 }
 
 const primitiv1: Primitiv = {
@@ -92,9 +106,12 @@ const primitiv1: Primitiv = {
     {
         shape: 'Circle',
         color: 'blue',
+       
+        boldcolor: 'black',
+    },
+    size: {
         width: 50,
         height: 50,
-        boldcolor: 'black',
     }
 }
 
@@ -105,10 +122,12 @@ const primitiv2: Primitiv = {
     data:
     {
         shape: 'Triangle',
-        color: 'blue',
+        color: 'blue', 
+        boldcolor: 'black',
+    },
+    size: {
         width: 100,
         height: 200,
-        boldcolor: 'black',
     }
 }
 

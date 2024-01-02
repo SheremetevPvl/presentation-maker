@@ -15,9 +15,9 @@ const Circle = (props: FigureProps)  => {
       marginLeft: props.data.coordinates.x / props.decrease,
       borderBlockColor: props.data.data.boldcolor,
       backgroundColor: props.data.data.color,
-      width: props.data.data.width / props.decrease,
-      height: props.data.data.width / props.decrease,
-      borderRadius: props.data.data.width / 2 / props.decrease,
+      width: props.data.size.width / props.decrease,
+      height: props.data.size.height / props.decrease,
+      borderRadius: props.data.size.width / 2 / props.decrease,
    }
 
     return (

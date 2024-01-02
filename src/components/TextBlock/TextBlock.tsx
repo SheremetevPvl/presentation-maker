@@ -36,8 +36,8 @@ type TextProps = {
       padding: 2,
       borderBlockColor: data.boldcolor,
       backgroundColor: data.background,
-      marginLeft: data.coordinates.x / props.decrease,
-      marginTop: data.coordinates.y / props.decrease,
+      //marginLeft: data.coordinates.x / props.decrease,
+      //marginTop: data.coordinates.y / props.decrease,
       width: 'max-content',
       position: 'absolute',
     }
